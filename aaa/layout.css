@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:ital,wght@1,300&display=swap');
+
+body{
+    font-family: "Poppins", sans-serif;
+    
+}
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+    width: 50px;
+}
+
+ ul li{
+    color: rgb(252, 252, 252);
+    list-style-type: none;
+    cursor: pointer;
+    padding-left: 10rem;
+    display:table-row;
+    
+}
+
+ul button{
+    background: #65DAF9;
+    color: rgb(255, 255, 255);
+    border-color: #65DAF9;
+    display: block;
+    margin: -5px auto;
+    text-align: center;
+    padding: 10px 10px;
+    width: 120px;
+    border-radius: 25px;
+    transition: 0.25s;
+    cursor: pointer;
+
+}
+
+
+
+/* Slider */
+
+.container-fluid {
+  padding: 0;
+}
+
+#mainSlider .carousel-inner, #mainSlider .carousel-item {
+  height: 90vh;
+}
+
+#mainSlider .carousel-caption {
+  top: 30%;
+}
+
+#mainSlider .carousel-caption h2 {
+  font-size: 50px;
+  margin-bottom: 30px;
+
+}
+
+#mainSlider .carousel-caption p {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 100px;
+  color: #FFF;
+}
+
+.main-btn {
+  background-color: #65DAF9;
+  color: #FFF;
+  text-transform: uppercase;
+  width: 200px;
+  height: 60px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 3px solid transparent;
+  transition: .5s;
+}
+
+.main-btn:hover {
+  text-decoration: none;
+  color: #FFF;
+  background-color: transparent;
+  border-color: #3EC1D5;
+}
+
+.carousel-indicators .active {
+  background-color: #000000;
+}
+
+/* Quem Somos*/
+
+
+#quemSomos{ 
+  margin-top: 100px;
+  font-size: 20px;
+}
+
+.quem {
+  color: #444;
+  margin: 0 0 65px 0;
+  font-size: 40px;
+  text-align: center;
+}
+
+
+/* Footer */
+
+#contact-area {
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  .main-title {
+    color: #444;
+    margin: 0 0 65px 0;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  .main-title::after {
+    content: "";
+    border-top: 2px solid #333;
+    width: 15%;
+    position: absolute;
+    top: 60px;
+    left: 42.5%;
+  }
+  
+  .contact-box {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #3EC1D5;
+  }
+  
+  .contact-box i {
+    color: #444;
+    border: solid 1px #444;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-box p {
+    font-size: 16px;
+  }
+  
+  .contact-tile {
+    font-weight: bold;
+    color: #3EC1D5;
+  }
+  
+  #msg-box p {
+    font-size: 22px;
+  }
+  
+  /* Copy */
+  
+  #copy-area {
+    background-color: #F1F1F1;
+  }
+  
+  #copy-area .container {
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  #copy-area .container p {
+    margin-bottom: 0;
+  }
+  
+  #copy-area .container a {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  #copy-area .container a:hover {
+    text-decoration: none;
+    color: #3EC1D5;
+  }
+
