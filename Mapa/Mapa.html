@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="shortcut icon" type="imagex/png" href="../img/LOGO NOVA.png">
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -12,12 +11,30 @@
     <link rel="stylesheet" type="text/css" href="Mapa.css" media="screen" />
     <script  src = "https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js" > </script>
 
+    
 
-
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        margin-top: 2em;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  
+    <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.19/"></script>
+    
+  
 </head>
 <body>
     
 
+    <div id="viewDiv" class="viewDiv"></div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
@@ -33,42 +50,67 @@
             <li class="nav-item">
                 <a class="nav-link" href="#Empresa">Para sua empresa</a>
             </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#contrate">Contrate</a>
-            </li>
+        
             <li class="nav-item">
                 <a class="nav-link" href="#paravc">PARA VOCE</a>
             </li>
             <li class="nav-item">
-                        <a  class="nav-link" href="../cadastro/cadastro.html"> Entre
-                            <span class="icon"><ion-icon name="person"></ion-icon></span>
-                        </a>
-                    </li>
-            <li class="nav-item">
-                <button name="button">Contratar</button>
+                <a class="nav-link" href="../cadastro_cliente/cadastro.html">Contratar</a>
             </li>
+
+            <li class="nav-item" id="entrar">
+                <a  class="nav-link" href="../cadastro/cadastro.html"> Entre
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                </a>
+            </li>
+            
         </ul>
 
         </div>
     </nav> 
     
-
+    
     <section id="main">
-
-        <div class="embed-responsive embed-responsive-21by9">
-            <iframe id='mapa' src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15808.568874457877!2d-34.89551885!3d-7.880184750000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1647726100526!5m2!1spt-BR!2sbr" 
+        
+        
+        <div class="embed-responsive embed-responsive-21by9" class="mt-lg-4">
+            <!-- <iframe id='mapa' src="https://maps.google.com/maps?q=recife&z=15&output=embed" 
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
+
+            <div style="width: 640px; height: 480px" id="mapa"></div> -->
+
         </div>
         
     </section>
     <div class="jumbotron" style="margin-bottom: 0px;">
-        <h1>vaga</h1>
-        <p>texto texto</p>
+        <div id="search-input-wrapper">
+            <div class="row justify-content-center mw-100 w-100">
+                <div class="col-8" align="center">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping" style="cursor: pointer;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>                        </span>
+                        <input placeholder="buscar estacionamentos" class="form-control" type="search" name="input-search" id="input-search" aria-label="Search " aria-describedby="addon-wrapping">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
     </div>
-    
+
+    <!-- <div id="googleMap" style="width:100%;height:400px;"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZ9II0FB3ZGOpggE5olKdziY6vngGp-E&callback=myMap"></script>
+ -->
    
+    <script src="Mapa.js"></script>
+
     
 </body>
 

@@ -6,17 +6,30 @@
     width: 50px;
 }
 
- ul li{
+ul li{
     color: rgb(252, 252, 252);
     list-style-type: none;
     cursor: pointer;
     padding-left: 10rem;
     display:table-row;
-    
+}
+
+ul li#entrar > a{
+  background: #65DAF9;
+  color: rgb(255, 255, 255);
+  border-color: #65DAF9;
+  display: block;
+  text-align: center;
+  padding: 10px 10px;
+  width: 120px;
+  border-radius: 25px;
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 ul button{
-  background: #65DAF9;
+  background: transparent;
+  border: none;
   color: rgb(255, 255, 255);
   border-color: #65DAF9;
   display: block;
@@ -30,7 +43,6 @@ ul button{
 }
 
 /* Footer */
-
 #contact-area {
     text-align: center;
   }
@@ -106,3 +118,11 @@ ul button{
     color: #3EC1D5;
   }
 
+
+#search-input-wrapper {
+  position: absolute;
+  top: 6rem;
+  left: 30%;
+  width: 50rem;
+  z-index: 10000;
+}
