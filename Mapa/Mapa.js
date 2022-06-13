@@ -1,3 +1,36 @@
+function reservarVaga(email, estacionamento){
+    const API_EASY_VAGAS = `https://easyvagas.herokuapp.com/parking/reserve`; //endpoint para reservar a vaga.
+    const autorizacaoDoUsuario = JSON.parse(localStorage.getItem("login-info"));
+  
+    fetch(API_EASY_VAGAS, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            "id" : autorizacaoDoUsuario.id,
+            "email" : email,
+            "numero" : 1 // reservar uma vaga
+        })
+    }).then(respostaServidor => {
+        if(respostaServidor.ok){
+
+            //configura o aviso
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+            }); 
+
+            //lança o aviso na tela do usuário
+            Toast.fire({
+                icon: 'success',
+                title: `Vaga no estacionamento ${estacionamento} reservada com sucesso.`
+            }); 
+
+        }
+    });
+   
+}
 require([
     "esri/config",
      "esri/Map",
@@ -42,7 +75,7 @@ require([
      
      fetch(API_EASY_VAGAS).then(respostaServidor => {
          respostaServidor.json().then(estacionamentos => {
-
+            console.log(estacionamentos)
             estacionamentos.forEach(estacionamento => {
 
                 
@@ -53,11 +86,24 @@ require([
                 };
                 const popupTemplate = {
                     title: "{Name}",
-                    content: "{vacancies} vagas livres"
+                    content: function(feature) {
+                        const obj = feature.graphic.attributes
+
+                        const div = document.createElement("div");
+                        
+                        div.innerHTML = `${obj.vacancies} vagas livres <br><br><br><br> 
+                        
+                        
+                        
+                            <button class="btn btn-primary" onclick="reservarVaga('${estacionamento.email}', '${estacionamento.name}')"> Reservar vaga 🚗 </button>
+                        
+                        `
+                        return div
+                    }
                 }
                 const attributes = {
                     Name: estacionamento.name,
-                    vacancies: estacionamento.vacancies
+                    vacancies: Number(estacionamento.vacancies) - Number(estacionamento.reserved)
                 }
 
                 const pointGraphic = new Graphic({

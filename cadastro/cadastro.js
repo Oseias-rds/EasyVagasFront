@@ -68,7 +68,10 @@ function cadastro() {
             campoSenha.value ="";
             botaoCadastro.innerText = "Cadastrar";
 
-            location.href =  "../Mapa/Mapa.html";  //redireciona para o mapa.
+            response.json().then(loginInfo => {
+                localStorage.setItem("login-info", JSON.stringify(loginInfo)) //guarda a autorização do usuário no local storage (banco de dados do navegador)
+                location.href =  "../Mapa/Mapa.html";  //redireciona para o mapa.
+            })
         
         }else if(response.status == 400) { //email inválido
             
@@ -159,7 +162,11 @@ function login() {
             campoSenha.value ="";
             botaoLogin.innerText = "Entrar";
 
-            location.href =  "../Mapa/Mapa.html";  //redireciona para o mapa.
+            response.json().then(loginInfo => {
+                localStorage.setItem("login-info", JSON.stringify(loginInfo)) //guarda a autorização do usuário no local storage (banco de dados do navegador)
+                location.href =  "../Mapa/Mapa.html";  //redireciona para o mapa.
+            })
+
         }else if (response.status == 404) {
             const Toast = Swal.mixin({
                 toast: true,
